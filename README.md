@@ -1,13 +1,13 @@
 # Transfer-learning-for-CEUS
 探讨自然场景下数据训练的模型能否较好迁移到数据量有限的超声造影视频中
-本次研究使用公开发表的模型和参数，检索依据来自Paper With Code网站上计算机视觉-> 视频->视频分类任务的\href{https://paperswithcode.com/task/video-classification}{排名表}，部分公开模型虽然有着较好的性能，但因为作者认为这些网络的计算成本太高，如facebook开源的视频网络模型库\href{https://github.com/facebookresearch/VMZ}{VMZ}中的ir-CSN-152和ir-CSN-152模型，输入32\times $224^2$, 152层深度，没有纳入实验中。
+本次研究使用公开发表的模型和参数，检索依据来自2020年6月1日的Paper With Code网站上计算机视觉-> 视频->视频分类任务的[排名表](https://paperswithcode.com/task/video-classification),部分公开模型虽然有着较好的性能，但因为作者认为这些网络的计算成本太高，如facebook开源的视频网络模型库[VMZ](https://github.com/facebookresearch/VMZ)中的ir-CSN-152和ir-CSN-152模型，输入32*224*224, 152层深度，没有纳入实验中。
 
 本研究对比了2D CNN，2D CNN+BERT，C3D，I3D，SlowFast，R(2+1)D，TSM，GSM后，得到结论如下：
-\begin{enumerate}
-	\item GSM模型的性能较为优越；
-	\item 2D CNN可以比部分时空网络效果好；
-	\item BERT结构相对2D CNN，性能更好，且BERT resnet50 和BERT bninception性能较突出；
-	\item Slow通道的迁移效果最差，不适合应用在CEUS中；
+
+	1. GSM模型的性能较为优越；
+	2. 2D CNN可以比部分时空网络效果好；
+	3. BERT结构相对2D CNN，性能更好，且BERT resnet50 和BERT bninception性能较突出；
+	4. Slow通道的迁移效果最差，不适合应用在CEUS中；
 	\item TSM网络的迁移性能较差，这可能因为Shift模块的模式在CEUS上无法迁移利用；
 	\item I3D的表现较为平庸；
 	\item C3D对在更多数据时，性能提升明显，实现了0.9的正确率和0.867的ICC敏感性，在所有实验中变现最好的；
